@@ -1,0 +1,53 @@
+/* ============================================
+   CORREÇÃO V3: Espaçamento Agressivo dos Checks
+   ============================================ */
+
+/* Estilo para listas no modal */
+.glass-modal ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 1.5rem 0 !important;
+}
+
+.glass-modal ul li {
+    position: relative !important;
+    /* Espaço generoso para garantir que o texto não encoste */
+    padding-left: 3.5rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.6 !important;
+    display: block !important;
+}
+
+.glass-modal ul li::before {
+    content: "✓" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: -2px !important;
+    /* Ajuste fino vertical */
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #10b981 !important;
+    font-weight: 800 !important;
+    font-size: 1.4rem !important;
+    /* Fundo opcional para visualizar a área do ícone, removido para produção */
+    /* background: rgba(0, 255, 0, 0.1); */
+}
+
+/* Mobile: Ajuste Específico */
+@media (max-width: 768px) {
+    .glass-modal ul li {
+        /* Garante 3rem (48px) de espaço livre para o ícone */
+        padding-left: 3rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .glass-modal ul li::before {
+        font-size: 1.3rem !important;
+        width: 2rem !important;
+        left: 0 !important;
+    }
+}

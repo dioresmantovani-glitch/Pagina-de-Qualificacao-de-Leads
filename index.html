@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quero Meu Primeiro Imóvel</title>
+    <meta name="description"
+        content="Descubra em 1 minuto se você pode comprar sua casa própria pelo Minha Casa Minha Vida.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="js/protection.js"></script>
+    <script src="js/config.js"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1604507544052908');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1604507544052908&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+    <div class="background-effects">
+        <canvas id="particle-canvas"></canvas>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="grid-overlay"></div>
+        <!-- 3D CSS Real Estate Elements -->
+        <div class="floating-scene">
+            <!-- 3D Objects Removed (Using Canvas Constellations instead) -->
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="IMAGENS/foto_diore.png" alt="Foto Corretor" class="logo-img">
+            <div class="logo-text">
+                Corretor Diores Mantovani <span class="highlight"> CRECI 245.014-F</span>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="badge">CONQUISTE O SEU PRIMEIRO IMÓVEL</span>
+            <h1>QUERO MEU PRIMEIRO IMÓVEL</h1>
+            <p class="hero-sub">Em apenas 1 minuto, entenda todos os passos necessários para comprar seu primeiro imóvel
+                de forma segura, planejada e sem surpresas.</p>
+
+            <!-- New Educational Button -->
+            <button class="cta-button-glass-pulse" onclick="openFunnel()">
+                1° Passo para conquistar meu Imóvel
+            </button>
+
+
+        </div>
+        <div class="hero-visual">
+            <div class="futuristic-card">
+                <div class="card-content">
+                    <div class="stat-row">
+                        <span class="label">Subsídio Total (Até)</span>
+                        <span class="value success">R$ 55.000*</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Juros Anuais</span>
+                        <span class="value highlight">a partir de 4%</span>
+                    </div>
+                    <div class="graph-placeholder">
+                        <div class="bar bar-1"></div>
+                        <div class="bar bar-2"></div>
+                        <div class="bar bar-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="benefits" class="benefits-section">
+        <h2 class="section-title">Benefícios do Minha Casa Minha Vida:</h2>
+        <div class="cards-grid">
+            <div class="card glass">
+                <div class="icon-box">💰</div>
+                <h3>Subsídio do Governo</h3>
+                <p>Receba ajuda do governo para pagar parte do seu imóvel. Valores variam conforme sua renda e região.
+                </p>
+            </div>
+            <div class="card glass">
+                <div class="icon-box">📉</div>
+                <h3>Menores Taxas</h3>
+                <p>Aproveite as taxas de juros mais baixas do mercado imobiliário brasileiro.</p>
+            </div>
+            <div class="card glass">
+                <div class="icon-box">⏳</div>
+                <h3>Prazo Estendido</h3>
+                <p>Até 35 anos para pagar, com parcelas que cabem no seu orçamento mensal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="qualify" class="qualify-section">
+        <div class="container-small">
+            <h2 class="section-title">Faça a sua Simulação Gratuita agora!</h2>
+            <p class="section-sub"
+                style="color: #ffffff; font-size: 1.15rem; font-weight: 500; text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9); line-height: 1.7;">
+                Complete os passos para receber imediatamente a sua Análise de Crédito Gratuita.
+            </p>
+
+            <form id="leadForm" class="glass-form">
+                <!-- 1. WhatsApp e Email (NOVO INÍCIO) -->
+                <div class="form-step active" data-step="1">
+                    <label>Para Receber sua Análise de Crédito, qual seu WhatsApp?</label>
+                    <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required oninput="maskPhone(this)"
+                        onkeypress="handleEnter(event, 1, 'whatsapp')">
+
+                    <label style="font-size: 1.2rem; margin-top: 1.5rem;">E-mail (opcional)</label>
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com"
+                        onkeypress="handleEnter(event, 1, 'email')">
+
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(1, 'whatsapp', 2)">Continuar</button>
+                </div>
+
+
+                <!-- 2. Nome Completo -->
+                <div class="form-step" data-step="2">
+                    <label>Qual seu Nome e Sobrenome?</label>
+                    <input type="text" id="nome" placeholder="Digite seu Nome e Sobrenome" required
+                        onkeypress="handleEnter(event, 2, 'nome')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(2, 'nome', 3)">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 3. Tipo de Imóvel -->
+                <div class="form-step" data-step="3">
+                    <label>Qual tipo de imóvel você deseja?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(3, 'interesse', 'Casa Pronta para Morar')">Casa ou Apartamento - Pronto
+                            para Morar</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(3, 'interesse', 'Apartamento Pronto para Morar')">Casa ou Apartamento - Na
+                            planta</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(3, 'interesse', 'Apartamento na Planta')">Construir do Meu Jeito -
+                            Financiar Terreno + Obra</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(3, 'interesse', 'Construir a casa do meu jeito')">Somente Terreno ou Lote
+                            em condomínio</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 4. Cidade -->
+                <div class="form-step" data-step="4">
+                    <label>Em qual cidade você quer comprar?</label>
+                    <input type="text" id="cidade" placeholder="Ex: São Paulo" required
+                        onkeypress="handleEnter(event, 4, 'cidade')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(4, 'cidade', '4.1')">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 4.1 Bairros -->
+                <div class="form-step" data-step="4.1">
+                    <label>Quais bairros você tem interesse?</label>
+                    <input type="text" id="bairros" placeholder="Ex: Centro, Zona Sul..." required
+                        onkeypress="handleEnter(event, '4.1', 'bairros')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext('4.1', 'bairros', 5)">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 3. CPF -->
+                <div class="form-step" data-step="3">
+                    <label>Qual o número do seu CPF?</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" required oninput="maskCPF(this)"
+                        onkeypress="handleEnter(event, 3, 'cpf')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(3, 'cpf', '3.1')">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 3.1 Restrição CPF -->
+                <div class="form-step" data-step="3.1">
+                    <label>Você tem restrição no CPF? <span
+                            style="display:block; font-size: 0.85em; font-weight: normal; margin-top: 5px; color: var(--text-muted);">(Você
+                            pode ter o seu financiamento aprovado mesmo com restrição no CPF)</span></label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep('3.1', 'restricao_cpf', 'sim', 4)">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep('3.1', 'restricao_cpf', 'nao', 4)">Não</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep('3.1', 'restricao_cpf', 'nao_sei', 4)">Não Sei Dizer</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 4. Já tem imóvel? -->
+                <div class="form-step" data-step="4">
+                    <label>Você já tem imóvel em seu nome?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(4, 'possui_imovel', 'sim', '4.1')">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(4, 'possui_imovel', 'nao', 5)">Não</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 4.1 Qual tipo de imóvel (Condicional) -->
+                <div class="form-step" data-step="4.1">
+                    <label>Qual o tipo do seu imóvel?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(4.1, 'tipo_imovel', 'Casa', 5)">Casa</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(4.1, 'tipo_imovel', 'Apartamento', 5)">Apartamento</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(4.1, 'tipo_imovel', 'Terreno/Lote', 5)">Terreno / Lote</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 5. Data de Nascimento -->
+                <div class="form-step" data-step="5">
+                    <label>Qual sua data de nascimento?</label>
+                    <input type="text" id="nascimento" placeholder="DD/MM/AAAA" required oninput="maskDate(this)"
+                        onkeypress="handleEnter(event, 5, 'nascimento')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(5, 'nascimento')">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 6. Estado Civil -->
+                <div class="form-step" data-step="6">
+                    <label>Qual seu estado civil?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(6, 'estado_civil', 'solteiro')">Solteiro(a)</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(6, 'estado_civil', 'casado')">Casado(a)</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(6, 'estado_civil', 'uniao_estavel')">União Estável</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(6, 'estado_civil', 'divorciado')">Divorciado(a)</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(6, 'estado_civil', 'viuvo')">Viúvo(a)</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+                <!-- 7. Filhos menores -->
+                <div class="form-step" data-step="7">
+                    <label>Você tem filhos menores de idade?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn" onclick="nextStep(7, 'filhos', 'sim', 8)">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(7, 'filhos', 'nao', '7.1')">Não</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 7.1 Parente sem renda -->
+                <div class="form-step" data-step="7.1">
+                    <label>Você tem algum parente que não tem renda ou não trabalha registrado?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep('7.1', 'dependente_sem_renda', 'sim', '7.2')">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep('7.1', 'dependente_sem_renda', 'nao', 8)">Não</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 7.2 Grau de parentesco -->
+                <div class="form-step" data-step="7.2">
+                    <label>Qual o grau de parentesco?</label>
+                    <input type="text" id="parentesco_dependente" placeholder="Ex: Pai, Mãe, Irmão..."
+                        onkeypress="handleEnter(event, '7.2', 'parentesco_dependente')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext('7.2', 'parentesco_dependente', 8)">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 8. Renda Bruta Mensal -->
+                <div class="form-step" data-step="8">
+                    <label>Qual sua renda mensal (bruta)?</label>
+                    <input type="text" id="renda" placeholder="R$ 0,00" required oninput="maskMoney(this)"
+                        onkeypress="handleEnter(event, 8, 'renda')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(8, 'renda')">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 9. Juntar renda -->
+                <div class="form-step" data-step="9">
+                    <label>Deseja juntar renda com alguém?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(9, 'juntar_renda', 'sim')">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(9, 'juntar_renda', 'nao')">Não</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 10. 3 anos de FGTS -->
+                <div class="form-step" data-step="10">
+                    <label>Você tem 3 anos ou mais de carteira assinada com FGTS (somando de todos empregos)?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(10, 'tempo_fgts', 'sim')">Sim</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(10, 'tempo_fgts', 'nao')">Não</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 11. Trabalha registrado -->
+                <div class="form-step" data-step="11">
+                    <label>Trabalha registrado atualmente?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(11, 'trabalha_registrado', 'sim')">Sim</button>
+                        <button type="button" class="option-btn" <button type="button" class="option-btn"
+                            onclick="nextStep(11, 'trabalha_registrado', 'nao')">Não
+                            (Autônomo ou Outros)</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 12. Tentou aprovação -->
+                <div class="form-step" data-step="12">
+                    <label>Tentou aprovação de financiamento recentemente?</label>
+                    <div class="options-grid">
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(12, 'tentativa_aprovacao', 'nunca')">Nunca
+                            tentei</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(12, 'tentativa_aprovacao', 'menos-6-meses')">Sim, há menos de 6
+                            meses</button>
+                        <button type="button" class="option-btn"
+                            onclick="nextStep(12, 'tentativa_aprovacao', 'mais-6-meses')">Sim, há mais de 6
+                            meses</button>
+                    </div>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 13. Valor entrada -->
+                <div class="form-step" data-step="13">
+                    <label>Você tem algum valor em (Dinheiro ou FGTS) para dar de entrada?</label>
+                    <input type="text" id="valor_entrada" placeholder="R$ 0,00" required oninput="maskMoney(this)"
+                        onkeypress="handleEnter(event, 13, 'valor_entrada')">
+                    <button type="button" class="cta-button-primary full-width"
+                        onclick="validateAndNext(13, 'valor_entrada')">Continuar</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <!-- 14. Confirmação Final -->
+                <div class="form-step" data-step="14">
+                    <label>Pronto! Agora vamos enviar suas informações para análise.</label>
+                    <p style="text-align: center; color: var(--text-muted); font-size: 1rem; margin: 1rem 0;">
+                        Clique no botão abaixo para receber sua Análise de Crédito Gratuita no WhatsApp informado.
+                    </p>
+                    <button type="button" class="cta-button-primary full-width" onclick="finishForm()">Enviar
+                        Respostas</button>
+                    <button type="button" class="btn-back" onclick="prevStep()">← Voltar</button>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </form>
+
+            <div id="resultScreen" class="glass-form"
+                style="display: none; text-align: center; animation: fadeIn 0.5s ease-out;">
+                <h3 id="resultTitle" style="font-size: 2rem; margin-bottom: 1rem; color: #fff; word-spacing: 0.15em;">
+                    Parabéns, você deu um grande passo rumo ao seu imóvel! 🚀</h3>
+                <p id="resultMessage"
+                    style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6; word-spacing: 0.1em;">
+                    Seu formulário já foi recebido e está em análise pelo especialista. Em breve ele entrará em contato
+                    para explicar a simulação e orientar os próximos passos. Se preferir falar com ele agora, basta
+                    clicar no botão abaixo.
+
+                </p>
+                <button id="resultBtn" class="cta-button-primary">QUERO FALAR COM UM ESPECIALISTA AGORA</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 QueroMeuPrimeiroImóvel. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="abandon-system.js"></script>
+
+    <!-- FORCED STYLES PARA CORRIGIR MOBILE E CHECKS -->
+    <style>
+        /* 1. CORREÇÃO CHECKMARKS */
+        .glass-modal ul li {
+            padding-left: 50px !important;
+            /* Espaço Fixo em PX */
+            position: relative !important;
+            list-style: none !important;
+        }
+
+        .glass-modal ul li::before {
+            content: "✓" !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 40px !important;
+            height: 30px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #10b981 !important;
+            font-size: 24px !important;
+        }
+
+        /* 2. CORREÇÃO BACKGROUND MOBILE */
+        @media (max-width: 768px) {
+            .background-effects {
+                /* Ajuste fino para focar na família e placa sold: 35% no eixo X */
+                background-position: 35% center !important;
+                background-size: cover !important;
+                background-attachment: scroll !important;
+            }
+
+            /* Garante que o padding exista no mobile */
+            .glass-modal ul li {
+                padding-left: 45px !important;
+                margin-bottom: 15px !important;
+            }
+        }
+    </style>
+    <!-- Funnel Modal -->
+    <div id="funnelModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content glass-modal">
+            <button class="close-modal" onclick="closeFunnel()">×</button>
+
+            <!-- Step 1 -->
+            <div id="funnelStep1" class="funnel-step active">
+                <div class="step-indicator">PASSO 1 DE 3</div>
+                <h2>Simulação de Financiamento</h2>
+                <div class="step-body">
+                    <p>O primeiro passo é contar com a ajuda de um corretor de imóveis credenciado ao CRECI para
+                        realizar a
+                        simulação de financiamento.</p>
+                    <p><strong>Nessa etapa, você vai descobrir:</strong></p>
+                    <ul>
+                        <li>Quanto o banco pode liberar para você (financiamento + subsídio)</li>
+                        <li>Valor das parcelas do financiamento</li>
+                        <li>Taxa de juros</li>
+                        <li>Prazo de pagamento</li>
+                        <li>Valor de entrada necessário</li>
+                        <li>Custos com documentação</li>
+                        <li>Outras informações essenciais para a compra do seu primeiro imóvel</li>
+                    </ul>
+                    <p>Com esses dados em mãos, você passa a conhecer exatamente o seu poder de compra e as melhores
+                        oportunidades dentro da sua realidade financeira.</p>
+                </div>
+                <button class="cta-button-primary full-width" onclick="nextFunnelStep(2)">Próximo Passo →</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="funnelStep2" class="funnel-step" style="display: none;">
+                <div class="step-indicator">PASSO 2 DE 3</div>
+                <h2>Aprovação do Financiamento</h2>
+                <div class="step-body">
+                    <p>Aqui, você envia sua documentação pessoal para o corretor responsável, que dará andamento à
+                        aprovação
+                        do financiamento junto ao correspondente bancário credenciado da Caixa Econômica Federal.</p>
+
+                    <div class="docs-grid">
+                        <div class="doc-category">
+                            <h3>📌 Documentos necessários (Pessoal)</h3>
+                            <ul>
+                                <li>RG e CPF e/ou CNH (frente e verso)</li>
+                                <li>Certidão de Nascimento ou Casamento (com averbação do divórcio, se for o caso)</li>
+                                <li>Comprovante de endereço</li>
+                                <li>Extrato bancário</li>
+                                <li>Documentos dos dependentes (se houver)</li>
+                            </ul>
+                        </div>
+                        <div class="doc-category">
+                            <h3>📌 Para trabalhadores (CLT)</h3>
+                            <ul>
+                                <li>Último holerite</li>
+                                <li>Declaração do Imposto de Renda com recibo (se declarar)</li>
+                                <li>Carteira de Trabalho Digital</li>
+                                <li>Extrato do FGTS atualizado</li>
+                                <li>Número do PIS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="highlight-text">Após o envio e análise, o banco confirma sua aprovação, liberando o valor
+                        necessário para a compra do imóvel.</p>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-back-modal" onclick="nextFunnelStep(1)">← Voltar</button>
+                    <button class="cta-button-primary full-width" onclick="nextFunnelStep(3)">Próximo Passo →</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="funnelStep3" class="funnel-step" style="display: none;">
+                <div class="step-indicator">PASSO 3 DE 3</div>
+                <h2>Escolher o Seu Primeiro Imóvel
+                </h2>
+                <div class="step-body">
+                    <div class="final-step-icon">🎉</div>
+                    <p>Com o financiamento aprovado, chegou a hora de escolher o melhor imóvel disponível dentro das
+                        condições aprovadas.</p>
+                    <p>Assim, você garante uma compra segura, consciente e totalmente adequada às suas possibilidades.
+                    </p>
+                </div>
+                <button class="cta-button-primary full-width pulse-animation" onclick="closeFunnelAndScroll()">Quero Dar
+                    o
+                    Primeiro Passo 🚀</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

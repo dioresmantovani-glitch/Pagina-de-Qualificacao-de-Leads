@@ -1,0 +1,2300 @@
+﻿:root {
+    --bg-color: #0a0a0f;
+    --text-color: #ffffff;
+    --text-muted: #d0d0d0;
+    --primary: #6366f1;
+    --secondary: #ec4899;
+    --accent: #8b5cf6;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-main: 'Outfit', sans-serif;
+    --easing: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+#introducao-especial {
+    word-spacing: 2%;
+}
+
+.espacamento-longo {
+    word-spacing: 20px;
+}
+
+p {
+    word-spacing: 5px;
+}
+
+.texto-principal {
+    word-spacing: 1.5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove grey tap box on mobile */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    /* iOS fix */
+    min-height: 100vh;
+    /* iOS height fix */
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+/* Background Effects */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+    background: radial-gradient(circle, var(--primary), transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    background: radial-gradient(circle, var(--secondary), transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--glass-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    word-spacing: 2px;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+    transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+    filter: drop-shadow(0 0 25px rgba(99, 102, 241, 0.9));
+    transform: scale(1.05);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.25rem;
+    }
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+/* Buttons */
+.cta-button-small {
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s var(--easing);
+}
+
+.cta-button-small:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.cta-button-primary {
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing);
+}
+
+.cta-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+.cta-button-secondary {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cta-button-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+    .hero-section {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 10;
+}
+
+.badge {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Hero Visual (Interactive Card) */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.futuristic-card {
+    width: 320px;
+    height: 400px;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.5s var(--easing);
+    position: relative;
+}
+
+.futuristic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), transparent, var(--secondary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.futuristic-card:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.value.success {
+    color: #10b981;
+}
+
+.value.highlight {
+    color: var(--secondary);
+}
+
+.graph-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding-top: 1rem;
+}
+
+.bar {
+    width: 33%;
+    background: linear-gradient(to top, var(--primary), var(--accent));
+    border-radius: 4px;
+    opacity: 0.8;
+    animation: barGrow 2s ease-out forwards;
+}
+
+.bar-1 {
+    height: 40%;
+    animation-delay: 0.2s;
+}
+
+.bar-2 {
+    height: 60%;
+    animation-delay: 0.4s;
+}
+
+.bar-3 {
+    height: 85%;
+    animation-delay: 0.6s;
+}
+
+/* Sections */
+.benefits-section,
+.qualify-section {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-sub {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card.glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform 0.3s;
+}
+
+.card.glass:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.icon-box {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+/* Form Styles */
+.container-small {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.glass-form {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Improved Form Step Layout */
+.form-step.active {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    /* Removed min-height to fix rendering issues */
+}
+
+.glass-form label {
+    display: block;
+    font-size: 1.5rem;
+    /* Larger Question */
+    font-weight: 700;
+    margin-bottom: 0;
+    /* Handled by gap */
+    text-align: center;
+    /* Center the question */
+    word-spacing: 5px;
+}
+
+/* Premium Input Styles */
+input[type="tel"],
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    font-family: var(--font-main);
+    text-align: center;
+    /* Center text inside input */
+    appearance: none;
+    -webkit-appearance: none;
+    /* iOS Safari fix */
+    -moz-appearance: none;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+    transform: scale(1.02);
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.options-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.option-btn {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.option-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--primary);
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 33%;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+
+.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(20px, 40px);
+    }
+}
+
+@keyframes barGrow {
+    from {
+        height: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glitch Effect (Simplistic) */
+.glitch-text {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-text::before {
+    color: #0ff;
+    z-index: -1;
+    transform: translate(-2px, 0);
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    color: #f0f;
+    z-index: -2;
+    transform: translate(2px, 0);
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    80% {
+        clip-path: inset(10% 0 60% 0);
+    }
+
+    100% {
+        clip-path: inset(30% 0 30% 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        clip-path: inset(10% 0 60% 0);
+    }
+
+    20% {
+        clip-path: inset(30% 0 20% 0);
+    }
+
+    40% {
+        clip-path: inset(70% 0 10% 0);
+    }
+
+    60% {
+        clip-path: inset(20% 0 50% 0);
+    }
+
+    80% {
+        clip-path: inset(50% 0 20% 0);
+    }
+
+    100% {
+        clip-path: inset(5% 0 80% 0);
+    }
+}
+
+/* Navigation Back Button */
+.btn-back {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    width: 100%;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+}
+
+.btn-back:hover {
+    color: #fff;
+}
+
+/* Navigation Back Button */
+.btn-back {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    width: 100%;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+}
+
+.btn-back:hover {
+    color: #fff;
+}
+
+/* Enhanced Hero Aesthetics */
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    letter-spacing: 2px;
+    /* Changed from -2px to open it up */
+    word-spacing: 15px;
+    /* Added explicit word spacing */
+}
+
+.hero-sub {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.badge {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+
+/* 3D Floating Elements CSS */
+.floating-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.float-cube {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    animation: rotate3D 20s infinite linear;
+}
+
+.cube-1 {
+    top: 15%;
+    right: 10%;
+    opacity: 0.3;
+    animation-duration: 25s;
+}
+
+.cube-2 {
+    bottom: 20%;
+    left: 5%;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+    animation-duration: 30s;
+    animation-direction: reverse;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+.front {
+    transform: rotateY(0deg) translateZ(50px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+.cube-2 .front {
+    transform: rotateY(0deg) translateZ(30px);
+}
+
+.cube-2 .back {
+    transform: rotateY(180deg) translateZ(30px);
+}
+
+.cube-2 .right {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.cube-2 .left {
+    transform: rotateY(-90deg) translateZ(30px);
+}
+
+.cube-2 .top {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.cube-2 .bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+}
+
+@keyframes rotate3D {
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+/* Forced Centralization for PC and Mobile */
+.hero-section {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+}
+
+.hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.hero-sub {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.cta-group {
+    justify-content: center !important;
+}
+
+@media (min-width: 900px) {
+    .hero-section {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+
+/* 3D Real Estate Objects */
+.float-obj {
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate3D 30s infinite linear;
+}
+
+/* Building Styles */
+.building-3d {
+    width: 80px;
+    height: 160px;
+    /* Tall */
+    top: 20%;
+    right: 15%;
+    opacity: 0.4;
+}
+
+.building-3d .front,
+.building-3d .back {
+    width: 80px;
+    height: 160px;
+    transform: translateZ(40px);
+}
+
+.building-3d .back {
+    transform: rotateY(180deg) translateZ(40px);
+}
+
+.building-3d .right,
+.building-3d .left {
+    width: 80px;
+    height: 160px;
+    left: 0;
+    transform: rotateY(90deg) translateZ(40px);
+}
+
+.building-3d .left {
+    transform: rotateY(-90deg) translateZ(40px);
+}
+
+.building-3d .top,
+.building-3d .bottom {
+    width: 80px;
+    height: 80px;
+    top: 0;
+    transform: rotateX(90deg) translateZ(40px);
+}
+
+.building-3d .bottom {
+    top: auto;
+    bottom: 0;
+    transform: rotateX(-90deg) translateZ(120px);
+}
+
+/* House Styles */
+.house-3d {
+    width: 100px;
+    height: 100px;
+    bottom: 25%;
+    left: 10%;
+    opacity: 0.35;
+    animation-duration: 40s;
+    animation-direction: reverse;
+}
+
+/* House Base */
+.h-base {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    bottom: 0;
+    transform-style: preserve-3d;
+}
+
+.h-base .front,
+.h-base .back {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(50px);
+}
+
+.h-base .back {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.h-base .right,
+.h-base .left {
+    width: 100%;
+    height: 100%;
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.h-base .left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.h-base .bottom {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(-90deg) translateZ(40px);
+}
+
+/* House Roof (Pyramid) */
+.h-roof {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: -40px;
+    /* Positioning adjustment */
+    transform-style: preserve-3d;
+}
+
+.roof-face {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform-origin: bottom;
+}
+
+.r-front {
+    transform: translateZ(50px) rotateX(30deg);
+}
+
+.r-back {
+    transform: translateZ(-50px) rotateY(180deg) rotateX(30deg);
+}
+
+.r-left {
+    transform: translateX(-50px) rotateY(-90deg) rotateX(30deg);
+}
+
+.r-right {
+    transform: translateX(50px) rotateY(90deg) rotateX(30deg);
+}
+
+/* Starfield Background */
+.stars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 99vw 11vh #FFF, 61vw 81vh #FFF, 6vw 4vh #FFF, 97vw 94vh #FFF, 32vw 4vh #FFF, 74vw 61vh #FFF, 87vw 12vh #FFF, 98vw 91vh #FFF, 35vw 48vh #FFF, 74vw 42vh #FFF, 19vw 85vh #FFF, 36vw 10vh #FFF, 96vw 25vh #FFF, 71vw 2vh #FFF, 35vw 37vh #FFF, 57vw 85vh #FFF, 44vw 83vh #FFF, 54vw 45vh #FFF, 79vw 54vh #FFF, 86vw 76vh #FFF, 50vw 33vh #FFF, 33vw 47vh #FFF, 51vw 39vh #FFF, 46vw 67vh #FFF, 14vw 72vh #FFF, 52vw 44vh #FFF, 1vw 98vh #FFF, 60vw 24vh #FFF, 67vw 52vh #FFF, 95vw 88vh #FFF, 25vw 19vh #FFF, 60vw 18vh #FFF, 19vw 71vh #FFF, 94vw 15vh #FFF, 35vw 30vh #FFF, 42vw 87vh #FFF, 64vw 56vh #FFF, 94vw 95vh #FFF, 74vw 73vh #FFF, 84vw 43vh #FFF, 28vw 86vh #FFF, 36vw 57vh #FFF, 62vw 79vh #FFF, 87vw 53vh #FFF, 50vw 53vh #FFF, 29vw 9vh #FFF, 41vw 31vh #FFF, 35vw 4vh #FFF, 71vw 4vh #FFF, 91vw 18vh #FFF, 52vw 94vh #FFF, 82vw 58vh #FFF, 56vw 97vh #FFF, 28vw 48vh #FFF, 99vw 56vh #FFF, 68vw 18vh #FFF, 85vw 51vh #FFF, 91vw 27vh #FFF, 69vw 2vh #FFF, 94vw 70vh #FFF, 48vw 99vh #FFF, 48vw 51vh #FFF, 15vw 98vh #FFF, 90vw 87vh #FFF, 63vw 59vh #FFF, 84vw 10vh #FFF, 73vw 40vh #FFF, 60vw 18vh #FFF, 11vw 46vh #FFF, 47vw 59vh #FFF, 61vw 98vh #FFF, 28vw 43vh #FFF, 47vw 67vh #FFF, 55vw 81vh #FFF, 77vw 92vh #FFF, 22vw 89vh #FFF, 37vw 69vh #FFF, 48vw 77vh #FFF, 56vw 46vh #FFF, 43vw 3vh #FFF, 71vw 77vh #FFF, 59vw 44vh #FFF, 3vw 12vh #FFF, 2vw 83vh #FFF, 7vw 7vh #FFF, 39vw 13vh #FFF, 37vw 41vh #FFF, 77vw 39vh #FFF, 56vw 46vh #FFF, 5vw 46vh #FFF, 60vw 14vh #FFF, 52vw 81vh #FFF, 93vw 13vh #FFF, 84vw 78vh #FFF, 64vw 7vh #FFF, 47vw 12vh #FFF, 92vw 91vh #FFF, 87vw 97vh #FFF, 15vw 18vh #FFF, 84vw 11vh #FFF, 12vw 83vh #FFF, 75vw 65vh #FFF, 34vw 83vh #FFF, 2vw 85vh #FFF, 25vw 90vh #FFF, 86vw 4vh #FFF, 60vw 46vh #FFF, 16vw 26vh #FFF, 52vw 80vh #FFF, 72vw 64vh #FFF, 48vw 87vh #FFF, 23vw 44vh #FFF, 13vw 39vh #FFF, 35vw 30vh #FFF, 44vw 60vh #FFF, 87vw 18vh #FFF, 58vw 63vh #FFF, 83vw 12vh #FFF, 56vw 6vh #FFF, 68vw 47vh #FFF, 12vw 36vh #FFF, 84vw 50vh #FFF, 19vw 87vh #FFF, 67vw 34vh #FFF, 61vw 4vh #FFF, 56vw 85vh #FFF, 53vw 68vh #FFF, 89vw 1vh #FFF, 35vw 49vh #FFF, 51vw 84vh #FFF, 36vw 15vh #FFF, 93vw 54vh #FFF, 93vw 85vh #FFF, 76vw 10vh #FFF, 84vw 100vh #FFF, 24vw 67vh #FFF, 16vw 6vh #FFF, 59vw 10vh #FFF, 77vw 27vh #FFF, 30vw 45vh #FFF, 35vw 96vh #FFF, 29vw 89vh #FFF, 6vw 9vh #FFF, 32vw 94vh #FFF, 51vw 58vh #FFF, 35vw 18vh #FFF, 59vw 6vh #FFF, 42vw 8vh #FFF, 33vw 52vh #FFF, 68vw 87vh #FFF;
+    animation: animStar 100s linear infinite;
+    opacity: 0.6;
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    top: 0;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+/* Navbar Centralization Updates */
+.navbar {
+    justify-content: center !important;
+    gap: 10% !important;
+    /* Harmonious space */
+}
+
+.logo {
+    letter-spacing: 1px !important;
+    word-spacing: 5px !important;
+}
+
+
+/* Canvas Background */
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* Update Background Orbs to Match Reference (Cyan & Purple) - More subtle */
+.orb-1 {
+    background: radial-gradient(circle, #00e5ff, transparent 70%) !important;
+    /* Cyan Top Left */
+    opacity: 0.15 !important;
+}
+
+.orb-2 {
+    background: radial-gradient(circle, #7b1fa2, transparent 70%) !important;
+    /* Purple Bottom Right */
+    opacity: 0.2 !important;
+}
+
+
+/* Harmonious word spacing for section titles */
+.section-title {
+    word-spacing: 0.25em;
+}
+
+/* Improved Vertical and Horizontal Alignment with Harmonious Spacing */
+.qualify-section {
+    padding: 8rem 5% 6rem;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.section-sub {
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-small {
+    padding: 0 1rem;
+}
+
+.glass-form {
+    padding: 3rem 2.5rem;
+    margin-top: 2rem;
+}
+
+.form-step.active {
+    gap: 2.5rem;
+    min-height: 280px;
+    padding: 1rem 0;
+}
+
+.glass-form label {
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.options-grid {
+    gap: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+.option-btn {
+    padding: 1.25rem 1.5rem;
+    line-height: 1.5;
+}
+
+input[type='tel'],
+input[type='text'],
+input[type='email'],
+input[type='number'] {
+    margin: 0.5rem 0;
+}
+
+.progress-bar {
+    margin-top: 3rem;
+}
+
+.btn-back {
+    margin-top: 1.5rem;
+}
+
+.card.glass h3 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.card.glass p {
+    line-height: 1.7;
+    margin-top: 0.75rem;
+}
+
+/* Enhanced Vertical Spacing for Premium Look */
+.hero-section {
+    padding: 12rem 5% 8rem;
+    gap: 4rem;
+}
+
+.hero-content h1 {
+    margin-bottom: 2rem;
+}
+
+.hero-sub {
+    margin-bottom: 2.5rem;
+}
+
+.badge {
+    margin-bottom: 2rem;
+}
+
+.benefits-section {
+    padding: 10rem 5%;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.section-sub {
+    margin-bottom: 4.5rem;
+    padding: 0 1.5rem;
+}
+
+.cards-grid {
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.card.glass {
+    padding: 2.5rem;
+}
+
+.icon-box {
+    margin-bottom: 2rem;
+}
+
+.qualify-section {
+    padding: 10rem 5% 8rem;
+}
+
+.glass-form {
+    padding: 4rem 3rem;
+    margin-top: 3rem;
+}
+
+.form-step.active {
+    gap: 3rem;
+    min-height: 320px;
+    padding: 2rem 0;
+}
+
+.glass-form label {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.options-grid {
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    margin-top: 4rem;
+}
+
+.btn-back {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.cta-group {
+    margin-top: 1rem;
+    gap: 1.5rem;
+}
+
+footer {
+    padding: 6rem 1rem;
+    margin-top: 8rem;
+}
+
+/* Balanced Vertical Spacing - Removing Excess */
+.hero-section {
+    padding: 8rem 5% 5rem !important;
+    gap: 2.5rem !important;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem !important;
+}
+
+.hero-sub {
+    margin-bottom: 2rem !important;
+}
+
+.badge {
+    margin-bottom: 1.5rem !important;
+}
+
+.benefits-section {
+    padding: 5rem 5% !important;
+}
+
+.section-title {
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 0 !important;
+}
+
+.section-sub {
+    margin-bottom: 3rem !important;
+    padding: 0 !important;
+}
+
+.cards-grid {
+    gap: 2rem !important;
+    margin-top: 0 !important;
+}
+
+.card.glass {
+    padding: 2rem !important;
+}
+
+.icon-box {
+    margin-bottom: 1.5rem !important;
+}
+
+.qualify-section {
+    padding: 5rem 5% !important;
+}
+
+.glass-form {
+    padding: 2.5rem 2rem !important;
+    margin-top: 2rem !important;
+}
+
+.form-step.active {
+    gap: 2rem !important;
+    min-height: 250px !important;
+    padding: 1rem 0 !important;
+}
+
+.glass-form label {
+    margin-bottom: 0.5rem !important;
+    padding: 0 !important;
+}
+
+.options-grid {
+    gap: 1rem !important;
+    margin: 0.5rem 0 !important;
+}
+
+.progress-bar {
+    margin-top: 2.5rem !important;
+}
+
+.btn-back {
+    margin-top: 1.5rem !important;
+    padding: 0.5rem !important;
+}
+
+.cta-group {
+    margin-top: 0.5rem !important;
+    gap: 1rem !important;
+}
+
+footer {
+    padding: 4rem 1rem !important;
+    margin-top: 4rem !important;
+}
+
+/* Optimal Vertical Spacing - Balanced */
+.hero-section {
+    padding: 9rem 5% 6rem !important;
+    gap: 3rem !important;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.75rem !important;
+}
+
+.hero-sub {
+    margin-bottom: 2.25rem !important;
+}
+
+.badge {
+    margin-bottom: 1.75rem !important;
+}
+
+.benefits-section {
+    padding: 6.5rem 5% !important;
+}
+
+.section-title {
+    margin-bottom: 1.75rem !important;
+}
+
+.section-sub {
+    margin-bottom: 3.5rem !important;
+}
+
+.cards-grid {
+    gap: 2.5rem !important;
+}
+
+.card.glass {
+    padding: 2.25rem !important;
+}
+
+.icon-box {
+    margin-bottom: 1.75rem !important;
+}
+
+.qualify-section {
+    padding: 6.5rem 5% !important;
+}
+
+.glass-form {
+    padding: 3rem 2.25rem !important;
+    margin-top: 2.5rem !important;
+}
+
+.form-step.active {
+    gap: 2.25rem !important;
+    min-height: 270px !important;
+    padding: 1.25rem 0 !important;
+}
+
+.glass-form label {
+    margin-bottom: 0.75rem !important;
+}
+
+.options-grid {
+    gap: 1.15rem !important;
+    margin: 0.75rem 0 !important;
+}
+
+.progress-bar {
+    margin-top: 3rem !important;
+}
+
+.btn-back {
+    margin-top: 1.75rem !important;
+}
+
+.cta-group {
+    margin-top: 0.75rem !important;
+    gap: 1.25rem !important;
+}
+
+footer {
+    padding: 5rem 1rem !important;
+    margin-top: 5rem !important;
+}
+
+/* Reduced Vertical Spacing Between Sections */
+.hero-section {
+    padding: 8rem 5% 3rem !important;
+}
+
+.benefits-section {
+    padding: 4rem 5% !important;
+}
+
+.qualify-section {
+    padding: 4rem 5% !important;
+}
+
+/* Enhanced Hero Section Internal Spacing */
+.badge {
+    margin-bottom: 2.5rem !important;
+    display: block !important;
+}
+
+.hero-content h1 {
+    margin-bottom: 2.5rem !important;
+    margin-top: 0 !important;
+}
+
+.hero-sub {
+    margin-bottom: 3rem !important;
+    line-height: 1.7 !important;
+}
+
+.cta-group {
+    margin-top: 1.5rem !important;
+    margin-bottom: 3rem !important;
+    gap: 1.5rem !important;
+}
+
+.hero-visual {
+    margin-top: 2.5rem !important;
+}
+
+.hero-section {
+    gap: 3.5rem !important;
+}
+
+/* UNIFORM VERTICAL SPACING SYSTEM */
+/* Hero Section */
+.hero-section {
+    padding: 8rem 5% 4rem !important;
+    gap: 3rem !important;
+}
+
+.badge {
+    margin-bottom: 2rem !important;
+}
+
+.hero-content h1 {
+    margin-bottom: 2rem !important;
+}
+
+.hero-sub {
+    margin-bottom: 2rem !important;
+}
+
+.cta-group {
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+    gap: 1.5rem !important;
+}
+
+.hero-visual {
+    margin-top: 0 !important;
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: 4rem 5% !important;
+}
+
+.benefits-section .section-title {
+    margin-bottom: 2rem !important;
+}
+
+.benefits-section .section-sub {
+    margin-bottom: 3rem !important;
+}
+
+.cards-grid {
+    gap: 2rem !important;
+}
+
+.card.glass {
+    padding: 2rem !important;
+}
+
+.icon-box {
+    margin-bottom: 1.5rem !important;
+}
+
+.card.glass h3 {
+    margin-bottom: 1rem !important;
+}
+
+.card.glass p {
+    margin-top: 0.75rem !important;
+}
+
+/* Qualify Section */
+.qualify-section {
+    padding: 4rem 5% !important;
+}
+
+.qualify-section .section-title {
+    margin-bottom: 2rem !important;
+}
+
+.qualify-section .section-sub {
+    margin-bottom: 3rem !important;
+}
+
+.glass-form {
+    padding: 2.5rem 2rem !important;
+    margin-top: 2rem !important;
+}
+
+.form-step.active {
+    gap: 2rem !important;
+    min-height: 260px !important;
+    padding: 1rem 0 !important;
+}
+
+.glass-form label {
+    margin-bottom: 0.5rem !important;
+}
+
+input {
+    margin: 0.5rem 0 !important;
+}
+
+.options-grid {
+    gap: 1rem !important;
+    margin: 0.5rem 0 !important;
+}
+
+.option-btn {
+    padding: 1.25rem !important;
+}
+
+.progress-bar {
+    margin-top: 2.5rem !important;
+}
+
+.btn-back {
+    margin-top: 1.5rem !important;
+}
+
+/* Footer */
+footer {
+    padding: 4rem 1rem !important;
+    margin-top: 4rem !important;
+}
+
+/* Fix spacing between CTA buttons and hero visual card */
+.cta-group {
+    margin-bottom: 2rem !important;
+}
+
+.hero-visual {
+    margin-top: 2rem !important;
+}
+
+.hero-section {
+    gap: 2rem !important;
+}
+
+/* Fix spacing between hero card and benefits section */
+.hero-section {
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
+}
+
+.benefits-section {
+    padding-top: 2rem !important;
+    margin-top: 0 !important;
+}
+
+.benefits-section .section-title {
+    margin-top: 0 !important;
+}
+
+/* Harmonious spacing inside benefit cards */
+.card.glass {
+    padding: 2.5rem 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.icon-box {
+    margin-bottom: 1.5rem !important;
+    margin-top: 0 !important;
+}
+
+.card.glass h3 {
+    margin-bottom: 1.25rem !important;
+    margin-top: 0 !important;
+    line-height: 1.3 !important;
+}
+
+.card.glass p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.65 !important;
+}
+
+.cards-grid {
+    gap: 2rem !important;
+}
+
+/* Fix spacing between benefits cards and qualify section */
+.benefits-section {
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
+}
+
+.cards-grid {
+    margin-bottom: 0 !important;
+}
+
+.qualify-section {
+    padding-top: 3rem !important;
+    margin-top: 0 !important;
+}
+
+.qualify-section .section-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Harmonious spacing inside form steps */
+.form-step.active {
+    gap: 2rem !important;
+    padding: 2rem 1rem !important;
+    height: auto !important;
+    /* min-height: 280px !important; */
+    /* justify-content: space-between !important; */
+}
+
+.glass-form label {
+    margin-bottom: 0 !important;
+    padding: 0 0.5rem !important;
+    line-height: 1.4 !important;
+}
+
+.options-grid {
+    gap: 1rem !important;
+    margin: 0 !important;
+}
+
+.option-btn {
+    padding: 1rem 1.25rem !important;
+    /* Slightly smaller for better fit */
+}
+
+input[type='tel'],
+input[type='text'],
+input[type='email'],
+input[type='number'] {
+    margin: 0 !important;
+}
+
+.progress-bar {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.btn-back {
+    margin-top: 0 !important;
+}
+
+.glass-form {
+    padding: 2.5rem 2rem !important;
+}
+
+/* Increase font size of form questions harmoniously */
+.glass-form label {
+    font-size: 1.75rem !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+}
+
+@media (max-width: 768px) {
+    .glass-form label {
+        font-size: 1.5rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* Fix excessive spacing between CTA buttons and visual card */
+.cta-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.hero-visual {
+    margin-top: 1.5rem !important;
+    padding-top: 0 !important;
+}
+
+.hero-section {
+    gap: 1.5rem !important;
+}
+
+.futuristic-card {
+    margin-top: 0 !important;
+}
+
+/* Media query para garantir que badge não fique escondido atrás da navbar */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 180px !important;
+    }
+
+    .navbar {
+        padding: 1rem 5% !important;
+    }
+
+    .badge {
+        margin-top: 0 !important;
+        position: relative !important;
+        z-index: 50 !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hero-section {
+        padding-top: 140px !important;
+    }
+}
+
+
+
+/* CORREÇÃO FINAL - Badge visível no mobile */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        padding-top: 140px !important;
+        padding-bottom: 2rem !important;
+        margin-top: 0 !important;
+        gap: 1.5rem !important;
+    }
+
+    .hero-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .badge {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 50 !important;
+        display: inline-block !important;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 1rem !important;
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .hero-sub {
+        margin-bottom: 1.5rem !important;
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .cta-button-glass-pulse {
+        margin-bottom: 1rem !important;
+    }
+
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        z-index: 100 !important;
+        padding: 0.75rem 3% !important;
+    }
+
+    .logo {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Background Image with Lighter Overlay - Better visibility for family photo */
+.background-effects {
+    background: linear-gradient(rgba(5, 5, 8, 0.75), rgba(5, 5, 8, 0.75)), url('IMAGENS/background-imovel.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Mobile: Fix background position to focus on family (right side) */
+@media (max-width: 768px) {
+    .background-effects {
+        /* 75% no eixo X move o foco para a direita onde está a família */
+        background-position: 75% center !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+    }
+}
+
+
+
+/* Improve Text Readability over Image - Subtle shadow for lighter background */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+li,
+a,
+.badge,
+.stat-row,
+.card-content {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.glass-form {
+    backdrop-filter: blur(16px) !important;
+    background: rgba(15, 15, 25, 0.75) !important;
+    /* Higher opacity */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.card.glass {
+    backdrop-filter: blur(12px) !important;
+    background: rgba(20, 20, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* FIX: Make H1 solid white and readable over background */
+.hero-content h1 {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 1), 0 0 30px rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Ensure glitch text effect doesn't interfere with readability */
+.glitch-text {
+    color: #ffffff !important;
+}
+
+
+/* ANTI-COPY PROTECTION */
+body {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+/* Allow interaction with forms */
+input,
+textarea,
+button,
+select,
+.allow-select {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    /* Prevents right-click and save on images specific */
+}
+
+
+/* Funnel Button & Modal Styles */
+.cta-button-glass-pulse {
+    background: linear-gradient(90deg, #ff00cc, #333399);
+    border: none;
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    animation: pulseGlow 1.5s infinite alternate;
+    box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+    width: fit-content;
+    max-width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Mobile optimization for main CTA button */
+@media (max-width: 768px) {
+    .cta-button-glass-pulse {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        letter-spacing: 0.5px;
+        width: 100%;
+        max-width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+}
+
+.cta-button-glass-pulse:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 40px rgba(255, 0, 204, 0.8);
+    filter: brightness(1.2);
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 0 35px rgba(255, 0, 204, 0.8), 0 0 10px #fff;
+        transform: scale(1.02);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    animation: fadeInModal 0.3s forwards;
+}
+
+@keyframes fadeInModal {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Fixes */
+.futuristic-card {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 400px;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.5s var(--easing);
+    position: relative;
+    margin: 0 auto !important;
+    /* Center on mobile */
+}
+
+/* Ensure grid fits on small mobiles */
+.cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+}
+
+@media (max-width: 360px) {
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Modal Responsive Optimizations */
+@media (max-width: 768px) {
+    .glass-modal {
+        padding: 2rem 1.5rem !important;
+        margin: 1rem !important;
+        max-height: 85vh !important;
+    }
+
+    .funnel-step h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .step-body ul {
+        padding: 1rem !important;
+    }
+
+    .step-body li {
+        padding-left: 1.5rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    .final-step-icon {
+        font-size: 3rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 0 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    .final-step-icon {
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Modal Base Styles */
+    .glass-modal {
+        background: #1a1a2e;
+        /* Solid dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3.5rem 3rem;
+        width: 95%;
+        max-width: 650px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        color: #fff !important;
+        /* Force white text */
+    }
+
+    /* Ensure modal text is visible */
+    .glass-modal h2,
+    .glass-modal h3,
+    .glass-modal p,
+    .glass-modal li,
+    .glass-modal span {
+        color: #fff !important;
+        opacity: 1 !important;
+        text-shadow: none !important;
+        /* Remove shadow if it causes issues */
+    }
+
+    .step-body {
+        color: #cbd5e1 !important;
+        opacity: 1 !important;
+        display: block !important;
+    }
+
+    .funnel-step {
+        width: 100%;
+        /* Ensure it takes width */
+    }
+}
+
+/* --- ADICIONADO: Correção Visual do Modal para Desktop e Global --- */
+
+/* Estilo Base do Modal (Desktop e Geral) */
+.glass-modal {
+    background: rgba(13, 14, 23, 0.98) !important;
+    /* Fundo escuro sólido para leitura */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+    border-radius: 24px;
+    padding: 3.5rem;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    /* Rolagem vertical essencial */
+    color: #ffffff;
+    margin: auto;
+    animation: fadeInModal 0.4s ease-out;
+}
+
+/* Barras de rolagem personalizadas para o modal */
+.glass-modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.glass-modal::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.glass-modal::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 2px solid rgba(13, 14, 23, 1);
+}
+
+/* Melhoria na tipografia e Espaçamento do Modal */
+.funnel-step h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.step-indicator {
+    display: block;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-body {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 3rem;
+}
+
+.step-body p {
+    margin-bottom: 1.5rem;
+}
+
+.step-body ul {
+    list-style: none;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.step-body li {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 1.2rem;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+}
+
+.step-body li:last-child {
+    margin-bottom: 0;
+}
+
+.step-body li::before {
+    content: "✓";
+    color: #10b981;
+    /* Success Green */
+    position: absolute;
+    left: 0.5rem;
+    font-weight: 800;
+    font-size: 1.2rem;
+    background: rgba(16, 185, 129, 0.1);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Ajuste de Botões no Modal */
+.btn-group {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.btn-back-modal {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-back-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}
+
+/* Close Button - Top Right Absolute Position */
+.close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.close-modal:hover {
+    color: #fff;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Party Emoji - Large and Centered */
+.final-step-icon {
+    font-size: 5rem;
+    text-align: center;
+    display: block;
+    margin: 1rem auto 2.5rem auto;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsividade do Modal Ajustado */
+@media (max-width: 768px) {
+    .glass-modal {
+        padding: 2rem 1.5rem;
+        width: 95%;
+        max-height: 80vh;
+    }
+
+    .funnel-step h2 {
+        font-size: 1.75rem;
+    }
+
+    .step-body {
+        font-size: 1rem;
+    }
+
+    .btn-group {
+        grid-template-columns: 1fr;
+        /* Stack buttons on mobile */
+    }
+
+    /* Mobile-specific: Lighter background for better photo visibility */
+    .background-effects {
+        background: linear-gradient(rgba(5, 5, 8, 0.35), rgba(5, 5, 8, 0.45)), url('IMAGENS/background-imovel.jpg') !important;
+    }
+
+    /* Mobile-specific: Increase card background opacity for better readability */
+    .futuristic-card {
+        background: rgba(20, 20, 20, 0.85) !important;
+        backdrop-filter: blur(25px) !important;
+    }
+
+    /* Mobile-specific: Ensure hero content is readable */
+    .hero-content h1 {
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9), 0 0 25px rgba(99, 102, 241, 0.6) !important;
+    }
+}
